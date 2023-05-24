@@ -6,12 +6,13 @@
  */
 // dependencies
 const http = require('http');
-
+const {StringDecoder} = require('string_decoder');
+const {handleReqRes} = require('./helpers/handleReqRes')
 // app object - module scaffolding 
 const app = {};
 
 // configuration 
-app.config = {
+app.config = { 
     port: 3000,
 }
 
@@ -24,10 +25,7 @@ app.createServer = () => {
 }
 
 // handle Request Response 
-app.handleReqRes = (req, res) => {
-    // response handle 
-    res.end("Hello world");
-}
+app.handleReqRes = handleReqRes;
 
 // start the server 
 app.createServer();
